@@ -12,10 +12,10 @@ const Dashboard = (props) => {
     props.getCandidates();
   }, []);
 
-  const toggleSidebarClass = !props.toggle
+  const toggleSidebarClass = props.toggle
     ? "col-md-2 col-sm-0 col-xs-2 anim"
     : "col-md-1 col-sm-0 col-xs-1 anim";
-  const toggleMainClass = !props.toggle
+  const toggleMainClass = props.toggle
     ? "col-md-10 col-sm-12 col-xs-12 anim"
     : "col-md-11 col-sm-12 col-xs-12 anim";
 
