@@ -4,9 +4,12 @@
 }
 
 body {
-  overflow-x: hidden;
 }
 
+.bodyarea {
+  height: 100vh;
+  width: 100vw;
+}
 .header-section {
   background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
     url("./resources/images/keyboard.jpg");
@@ -39,6 +42,12 @@ body {
   border-bottom: 1px solid #504f4f;
 }
 
+.col-md-10,
+.col-md-11,
+.col-sm-12 {
+  padding: 0;
+  margin: 0;
+}
 .sb-topnav {
   position: fixed;
   top: 0;
@@ -51,8 +60,8 @@ body {
   border: none;
   background: #343a40;
 }
-.toggle i {
-  font-size: large;
+.icon-big {
+  font-size: x-large;
 }
 .toggle:active {
   border: none;
@@ -66,5 +75,41 @@ body {
   height: 100vh;
   z-index: 1037;
   opacity: 0.5;
-  transition: opacity 0.3s ease-in-out;
+  transition: all ease 0.5s;
+}
+
+@media (max-width: 520px) {
+  .sidebar {
+    display: none;
+  }
+}
+
+.disp-cards {
+  height: auto;
+}
+
+.candidate-cards {
+  background: white;
+
+  margin: 1rem 0.5rem;
+  transition: box-shadow 0.7s ease, transform 0.3s ease;
+}
+
+.candidate-cards:hover {
+  box-shadow: 2px -1px 10px rgba(0, 0, 0, 0.3);
+  transform: translateY(-10px);
+}
+
+.main-head {
+  background: #212529;
+}
+
+.mainarea {
+  background: rgba(12, 104, 121, 0.973);
+  height: 100%;
+}
+
+.tablearea {
+  background: white;
+  width: 100%;
 }

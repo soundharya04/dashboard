@@ -4,6 +4,8 @@ import { connect } from "react-redux";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
 import { getCandidates } from "../store/Actions/CandidateAction";
+import Mainarea from "../components/Mainarea";
+import { Spinner } from "../components/uiElements/uiElements";
 
 const Dashboard = (props) => {
   useEffect(() => {
@@ -16,8 +18,16 @@ const Dashboard = (props) => {
   const toggleMainClass = !props.toggle
     ? "col-md-10 col-sm-12 col-xs-12 anim"
     : "col-md-11 col-sm-12 col-xs-12 anim";
+
+  const mainbanner = props.spinner ? (
+    <div className={toggleMainClass}>
+      <Mainarea />
+    </div>
+  ) : (
+    <Spinner />
+  );
   return (
-    <div>
+    <div className="bodyarea">
       <Navbar />
       <div className="row">
         <div
@@ -28,25 +38,15 @@ const Dashboard = (props) => {
         >
           <Sidebar></Sidebar>
         </div>
-        <div className={toggleMainClass} style={{}}>
-          <div>
-            Main content
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque at
-              illo accusamus. Fugit voluptas atque animi, quod sit autem dolor
-              cumque optio, dolorem quibusdam deserunt laudantium impedit
-              doloremque nulla maxime?
-            </p>
-          </div>
-        </div>
+        {mainbanner}
       </div>
     </div>
   );
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
+    spinner: state,
     candidates: state ? state.candidates : null,
     toggle: state ? state.toggleSidebar : null,
   };

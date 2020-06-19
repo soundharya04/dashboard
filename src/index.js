@@ -7,6 +7,8 @@ import { Provider } from "react-redux";
 import { createStore, applyMiddleware } from "redux";
 import Rootreducer from "../src/store/Reducers/CandidateReducer";
 import thunk from "redux-thunk";
+import "react-bootstrap-table-next/dist/react-bootstrap-table2.min.css";
+import "react-bootstrap-table2-paginator/dist/react-bootstrap-table2-paginator.min.css";
 
 export const store = createStore(Rootreducer, applyMiddleware(thunk));
 
